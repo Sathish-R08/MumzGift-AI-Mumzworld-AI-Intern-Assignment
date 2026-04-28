@@ -20,11 +20,14 @@ Paste any prompt below into the search box at http://localhost:3000 (after `npm 
 
 1. **Prerequisites:** [Node.js](https://nodejs.org/) 18+ and npm. An [OpenRouter](https://openrouter.ai/) account and API key (free tier includes `meta-llama/llama-3.3-70b-instruct:free`).
 
-2. **Clone and enter the project** (or unzip `mumzgift-ai`).
+2. **Clone and enter the project:**
 
    ```bash
-   cd mumzgift-ai
+   git clone https://github.com/Sathish-R08/MumzGift-AI-Mumzworld-AI-Intern-Assignment.git
+   cd MumzGift-AI-Mumzworld-AI-Intern-Assignment
    ```
+
+   (If you already have this folder unpacked locally as `mumzgift-ai`, `cd` into that directory instead.)
 
 3. **Install dependencies** (workspaces install backend and frontend together):
 
