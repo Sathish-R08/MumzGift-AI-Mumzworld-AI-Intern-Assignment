@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "input": "Gift for newborn baby, under 100 AED",
+    "description": "Easy: clear recipient, age stage, tight budget",
+    "expected_behavior": "query_understood true; out_of_scope false; up to 3 recommendations; all estimated_price_aed <= 100; bilingual reasons; overall_confidence commonly > 0.6",
+    "pass": false,
+    "actual_output": null,
+    "notes": "Fill after manual or scripted run against live API."
+  },
+  {
+    "id": 2,
+    "input": "Thoughtful gift for a friend with a 6-month-old, under 200 AED",
+    "description": "Easy: narrative input with age and budget",
+    "expected_behavior": "Up to 3 items; prices <= 200 AED; age_appropriate true for baby ~6 months; EN+AR natural copy",
+    "pass": false,
+    "actual_output": null,
+    "notes": ""
+  },
+  {
+    "id": 3,
+    "input": "Birthday gift for a 2-year-old girl, around 150 AED",
+    "description": "Easy: toddler, occasion, approximate budget",
+    "expected_behavior": "age_months ~24 or interpreted as toddler; occasion birthday; ~3 recs near 150 AED band; not out_of_scope",
+    "pass": false,
+    "actual_output": null,
+    "notes": ""
+  },
+  {
+    "id": 4,
+    "input": "Gift for pregnant friend, no budget limit",
+    "description": "Easy: mom-to-be, null budget",
+    "expected_behavior": "recipient and occasion extracted; budget null; 1–3 sensible gifts; confidence reasonable",
+    "pass": false,
+    "actual_output": null,
+    "notes": ""
+  },
+  {
+    "id": 5,
+    "input": "Baby shower gift under 300 AED",
+    "description": "Easy: classic occasion with cap",
+    "expected_behavior": "occasion baby shower; all prices <= 300; max 3 recommendations",
+    "pass": false,
+    "actual_output": null,
+    "notes": ""
+  },
+  {
+    "id": 6,
+    "input": "Gift for 1-year-old boy who loves music",
+    "description": "Easy: interest + age for product fit",
+    "expected_behavior": "Music-themed or sensory items; age ~12 months; not out_of_scope",
+    "pass": false,
+    "actual_output": null,
+    "notes": ""
+  },
+  {
+    "id": 7,
+    "input": "Gift for my cat",
+    "description": "Adversarial: wrong domain (pets)",
+    "expected_behavior": "out_of_scope true; recommendations []; overall_confidence 0; out_of_scope_reason explains mom/baby scope",
+    "pass": false,
+    "actual_output": null,
+    "notes": ""
+  },
+  {
+    "id": 8,
+    "input": "Best laptop under 5000 AED",
+    "description": "Adversarial: electronics unrelated to assignment",
+    "expected_behavior": "out_of_scope true; empty recommendations; honest reason",
+    "pass": false,
+    "actual_output": null,
+    "notes": ""
+  },
+  {
+    "id": 9,
+    "input": "asdfjkl qwerty 123",
+    "description": "Adversarial: gibberish",
+    "expected_behavior": "query_understood false OR very low confidence; no fake confident product list; reason_if_not_understood if false",
+    "pass": false,
+    "actual_output": null,
+    "notes": ""
+  },
+  {
+    "id": 10,
+    "input": "gift",
+    "description": "Adversarial: single word, no context",
+    "expected_behavior": "overall_confidence below 0.6 per spec; may return 0–3 vague recs or empty; must not claim high certainty",
+    "pass": false,
+    "actual_output": null,
+    "notes": ""
+  },
+  {
+    "id": 11,
+    "input": "Gift for baby under 5 AED",
+    "description": "Adversarial: impossibly low budget",
+    "expected_behavior": "0 or 1 recommendation if any; all prices <= 5; model should not invent expensive items",
+    "pass": false,
+    "actual_output": null,
+    "notes": ""
+  },
+  {
+    "id": 12,
+    "input": "",
+    "description": "Adversarial: empty string",
+    "expected_behavior": "API returns 400 validation error from backend OR (if ever sent to model) query_understood false",
+    "pass": false,
+    "actual_output": null,
+    "notes": "Express route rejects empty query before LLM call."
+  }
+]
